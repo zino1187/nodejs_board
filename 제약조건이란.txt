@@ -1,0 +1,36 @@
+/*
+테이블에 들어가는 데이터는 무결성을 확보하기 위해 
+컬럼에 다양한 제한 사항을 걸 수있다..즉 제약적 조건을 
+부여할 수 있다!! 누가?? 테이블을 생성 주체가..개발자or DBA
+
+1.절대로 아무것도 넣지 않음을 허용하지 않겠다!!
+   not null 제약조건 
+
+2.절대로 중복을 허용하지 않겠다!!
+   unique 제약조건 
+
+3.지정한 값만을 허용하겠다 
+   check 제약조건   ex) 남, 여만 입력받고 싶을때..
+
+4.Null 을 허용하지 않으면서 중복도 허용하고 싶지 않을때...
+   primary key 기본키 제약조건  , 왜 쓰나??
+   동일한 데이터가 입력될 경우 레코드간 구분하기 위함..
+   unique + not null 
+
+5.default 제약조건  
+   레코드 입력시 기본적으로 들어갈 데이터를 지정하는 제약조건
+*/
+기본키
+작성자
+제목
+내용
+조회수
+등록날짜 
+create  table  board(
+    board_id  int  primary key auto_increment
+  , writer varchar(20) 
+  , title varchar(100) 
+  , content  text
+  , hit int  default 0
+  , regdate  timestamp  default  now()
+) default charset utf8;
